@@ -23,7 +23,7 @@ class PinsController extends AbstractController
     }
 
     /**
-     * @Route("/pins/{id<[0-9]+>}", name="app_pins_show", methods="GET")
+     * @Route("/pins/{id<[0-9]+>}", name="app_pins_show", methods={"GET"})
      */
     public function show(Pin $id, PinRepository $pinRepository): Response
     {
@@ -32,7 +32,7 @@ class PinsController extends AbstractController
     }
 
     /**
-     * @Route("/pins/create", name="app_pins_create", methods="GET|POST")
+     * @Route("/pins/create", name="app_pins_create", methods={"GET", "POST"})
      */
     public function create(Request $request, EntityManagerInterface $em): Response
     {
@@ -70,5 +70,16 @@ class PinsController extends AbstractController
             'form' => $form->createView(),
             'pin' => $pin
         ]);
+    }
+
+    /**
+     * @Route("/pins/{id<[0-9]+>}/delete", name="app_pins_delete", methods={"GET"})
+     */
+    public function delete(Pin $pin, EntityManagerInterface $em): Response
+    {
+        $em->remove($pin);
+        $em->flush();
+
+        return $this->redirectToRoute('app_home');
     }
 }
