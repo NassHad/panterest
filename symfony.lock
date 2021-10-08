@@ -133,6 +133,9 @@
     "kelunik/certificate": {
         "version": "v1.1.2"
     },
+    "knplabs/knp-time-bundle": {
+        "version": "v1.16.1"
+    },
     "laminas/laminas-code": {
         "version": "4.4.3"
     },
@@ -647,6 +650,9 @@
         "version": "1.2.1"
     },
     "twig/extra-bundle": {
+        "version": "v3.3.3"
+    },
+    "twig/string-extra": {
         "version": "v3.3.3"
     },
     "twig/twig": {
