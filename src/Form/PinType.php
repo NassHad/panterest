@@ -12,6 +12,9 @@ class PinType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        //$pin = $options['data']; 
+        //dd($pin && $pin->getId());// Check if it's the edit form or the create form
+
         $builder
             ->add('title')
             ->add('description')
@@ -21,6 +24,7 @@ class PinType extends AbstractType
                 'allow_delete' => true,
                 'delete_label' => 'Delete ?',
                 'download_uri' => false,
+                'imagine_pattern' => 'squared_thumbnail_small'
             ])
         ;
     }
