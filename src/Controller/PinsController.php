@@ -36,6 +36,7 @@ class PinsController extends AbstractController
      */
     public function create(Request $request, EntityManagerInterface $em): Response
     {
+        dd(phpinfo());
         $pin = new Pin;
         $form = $this->createForm(PinType::class, $pin);
 
