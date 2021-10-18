@@ -89,4 +89,21 @@ class PinsController extends AbstractController
         $this->addFlash('info', 'Pin successfully deleted'); // 1er argument = type (ce qu'on veut)
         return $this->redirectToRoute('app_home');
     }
+    
+    /**
+     * @Route("/test", name="app_test")
+     */
+    public function test(){
+        $annee = 2002;
+        function election($annee) {
+            $num = $annee - 2007;
+            // $lastNum = substr($annee, -1);
+            ($num % 5 == 0)? $res = true : $res = false;
+            return $res;
+        }
+
+        $result = election($annee);
+        dd($result);
+        return $this->render('test.html.twig', compact($result));
+    }
 }
